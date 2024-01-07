@@ -1,0 +1,29 @@
+.worklist_wrapper {
+  width: 100%;
+  max-width: 900px;
+  margin: auto;
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.worklist_wrapper h2 {
+  font-size: 22px;
+  font-weight: 400;
+  color: #21243D;
+}
+
+@media (max-width: 450px) {
+  .worklist_wrapper {
+    width: auto;
+    padding: 0 10px;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  
+  .worklist_wrapper h2 {
+    margin: 20px 0 0 10px;
+    text-align: center;
+  }
+}
