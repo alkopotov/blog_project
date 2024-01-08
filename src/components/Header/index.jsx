@@ -2,11 +2,11 @@ import { NavLink } from "react-router-dom";
 import s from './Header.module.css'
 import { ReactComponent as Hamburger } from './images/menu.svg';
 import { useDispatch, useSelector } from "react-redux";
-import { menuOffAction, menuToggleAction } from "../../store/menuReducer";
+import { menuOffAction, menuToggleAction } from "../../store/menuSlice";
 
 function Header() {
 
-  const menuVisible = useSelector(store => store.menu)
+  const menuVisible = useSelector(store => store.menu.value)
   const dispatch = useDispatch()
 
   return(

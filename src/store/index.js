@@ -1,14 +1,15 @@
-import {applyMiddleware, combineReducers, createStore} from 'redux'
-import { thunk } from 'redux-thunk'
-import { menuReducer } from './menuReducer';
-import { blogReducer } from './blogReducer';
-import { workReducer } from './workReducer';
+import { configureStore } from '@reduxjs/toolkit'
+import menuReducer from './menuSlice'
+import { API } from '../asyncActions'
+import { setupListeners } from '@reduxjs/toolkit/query'
 
 
-const rootReducer = combineReducers({
-  menu: menuReducer,
-  blogs: blogReducer,
-  works: workReducer
-}, [])
+export const store = configureStore({
+  reducer: {
+    [API.reducerPath]: API.reducer,
+    menu: menuReducer,
+  },
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(API.middleware),
+})
 
-export const store = createStore(rootReducer, applyMiddleware(thunk));
+setupListeners(store.dispatch)

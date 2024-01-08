@@ -1,30 +1,24 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import Banner from '../../components/Banner';
 import s from './HomePage.module.css'
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchRecentBlogs } from '../../asyncActions/blogs';
 import { Link } from 'react-router-dom';
 import BlogItem from '../../components/BlogItem';
 import WorkList from '../../components/WorkList';
-import { fetchFeaturedWorks } from '../../asyncActions/works';
+import { useRecentBlogListQuery } from '../../asyncActions';
 
 function HomePage() {
 
-  const blogs = useSelector(store => store.blogs)
-  const works = useSelector(store => store.works)
+  const headerRef = useRef()
 
-  const dispatch = useDispatch()
+  const {isLoading, isError, isSuccess, data} = useRecentBlogListQuery();
 
+  useEffect(() => {
+    headerRef.current.scrollIntoView({block: "end"})
+  }, [])
 
-  useEffect(()=> {
-    dispatch(fetchRecentBlogs())
-    dispatch(fetchFeaturedWorks())
-  }, [dispatch])
-
-  console.log(works);
   return (
     <main className={s.wrapper}>
-      <Banner/>
+      <Banner ref={headerRef}/>
       <section className={s.recent_posts_wrapper}>
         <div className={s.recent_posts}>
           <div className={s.recent_posts_header}>
@@ -32,7 +26,11 @@ function HomePage() {
             <Link to={'/blog'}>View All</Link>
           </div>
           <div className={s.recent_posts_list}>
-            {blogs.map(elem => <BlogItem  key={elem.id} blog={elem} onMain={true}/>)}
+
+            {isError ? <>Server Error</> : isLoading ?  <>Loading...</> : isSuccess ?
+            data?.blogs.map(elem => <BlogItem key={elem.id} blog={elem} onMain={true}/>) : null}
+            
+            
           </div>
         </div>
       </section>

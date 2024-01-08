@@ -1,18 +1,15 @@
 import { useEffect, useRef } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchAllBlogs } from "../../asyncActions/blogs";
 import BlogItem from "../../components/BlogItem";
 import s from './BlogPage.module.css'
+import { useAllBlogListQuery } from "../../asyncActions";
 
 function BlogPage() {
 
   const headerRef = useRef()
 
-  const dispatch = useDispatch()
-  const blogs = useSelector(store => store.blogs)
+  const {isLoading, isError, isSuccess, data} = useAllBlogListQuery();
 
   useEffect(() => {
-    dispatch(fetchAllBlogs())
     headerRef.current.scrollIntoView({block: "end"})
   }, [])
 
@@ -21,7 +18,8 @@ function BlogPage() {
     <main className={s.blog_page_wrapper}>
       <h1 ref={headerRef}>Blog</h1>
       <section className={s.blog_list}>
-        {blogs.map(elem => <div key={elem.id} className={s.blog_item}><BlogItem blog={elem}/></div>)}
+      {isError ? <>Server Error</> : isLoading ?  <>Loading...</> : isSuccess ?
+          data?.blogs.map(elem => <BlogItem key={elem.id} blog={elem}/>) : null}
       </section>
     </main>
   )

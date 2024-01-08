@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import { RouterProvider, createHashRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
-import { store } from './store';
-
+import {store} from './store';
+import { ApiProvider } from '@reduxjs/toolkit/query/react'
+import { API } from './asyncActions';
 
 export const BASE_URL = 'http://localhost:4444'
 
@@ -23,6 +24,9 @@ const router = createHashRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store = {store}>
-    <RouterProvider router={router}/>
+    
+      <RouterProvider router={router}/>
+
+    
   </Provider>
 );

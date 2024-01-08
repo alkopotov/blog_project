@@ -1,9 +1,11 @@
 import s from './Banner.module.css'
 import { BASE_URL } from '../..'
+import { forwardRef } from 'react'
 
-function Banner() {
+const Banner = forwardRef((props, ref) => {
+
   return (
-    <section className={s.banner_wrapper}>
+    <section className={s.banner_wrapper} ref={ref}>
       <div
         className={s.hero_picture}
         style={{backgroundImage: `url(${BASE_URL + '/images/person.webp'})`}}
@@ -19,6 +21,7 @@ function Banner() {
       
     </section>
   )
-}
+
+})
 
 export default Banner

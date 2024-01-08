@@ -6,7 +6,7 @@ function WorkItem({work}) {
     <div className={s.workitem_wrapper}>
       <div className={s.workitem_picture} style={{backgroundImage: `url(${work.main_img})`}}></div>
       <div className={s.workitem_details}>
-        <Link>
+        <Link to={'/works/' + work.id}>
           <h3>{work.title}</h3>
         </Link>
         
@@ -14,8 +14,8 @@ function WorkItem({work}) {
           <div className={s.workitem_year}>{work.year}</div>
           <div className={s.workitem_tags}>
             {work.tags.map(elem => 
-              work.tags.indexOf(elem) === work.tags.length - 1 ? <Link key={elem.id}>{elem.title}</Link>
-              :<Link key={elem.id}>{`${elem.title}${', '}`}</Link>)}
+              work.tags.indexOf(elem) === work.tags.length - 1 ? <Link key={elem.id} to={'/works/tag/' + elem.title}>{elem.title}</Link>
+              :<Link key={elem.id} to={'/works/tag/' + elem.title}>{`${elem.title}${', '}`}</Link>)}
           </div>
           
         </div>
