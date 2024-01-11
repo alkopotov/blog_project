@@ -38,7 +38,7 @@ function Header() {
 
 
         <NavLink
-          to={'/blog'}
+          to={'/blogs'}
           className={({ isActive, isPending }) => 
           isPending ? `${s.menu_item}` : isActive ? `${s.menu_item} ${s.menu_item_active}`: `${s.menu_item}`
           }

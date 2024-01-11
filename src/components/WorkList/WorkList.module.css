@@ -14,12 +14,19 @@
   color: #21243D;
 }
 
+@media (max-width: 960px) {
+  .worklist_wrapper {
+    max-width: 95%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+
 @media (max-width: 450px) {
   .worklist_wrapper {
     width: auto;
     padding: 0 10px;
-    display: grid;
-    grid-template-columns: 1fr;
   }
   
   .worklist_wrapper h2 {

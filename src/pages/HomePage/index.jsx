@@ -23,7 +23,7 @@ function HomePage() {
         <div className={s.recent_posts}>
           <div className={s.recent_posts_header}>
             <h2>Recent posts</h2>
-            <Link to={'/blog'}>View All</Link>
+            <Link to={'/blogs'}>View All</Link>
           </div>
           <div className={s.recent_posts_list}>
 

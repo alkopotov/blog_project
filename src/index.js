@@ -4,10 +4,13 @@ import App from './App';
 import { RouterProvider, createHashRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import {store} from './store';
-import { ApiProvider } from '@reduxjs/toolkit/query/react'
-import { API } from './asyncActions';
+import { BASE_URL } from './asyncActions';
 
-export const BASE_URL = 'http://localhost:4444'
+
+export function getUrl(link){
+  if (link.startsWith('http')) return link;
+  return BASE_URL + link
+}
 
 export const formatter = new Intl.DateTimeFormat('en-US', {
   day: 'numeric',

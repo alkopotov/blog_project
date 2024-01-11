@@ -7,7 +7,7 @@ function WorkList({withTitle, tag}) {
   const {isLoading, isError, isSuccess, data} = useAllWorkListQuery()
 
   let workList = []
-  if (isError) return <>ServerError</>
+  if (isError) return <>Server Error</>
   if (isLoading) return <>Loading...</>
   
   if (isSuccess) {

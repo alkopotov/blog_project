@@ -1,0 +1,45 @@
+
+.notfoundpage_wrapper {
+  width: 100%;
+  max-width: 900px;
+  margin: auto;
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;align-items: center;
+}
+
+.notfound_picture {
+  width: 60vw;
+  max-width: 500px;
+  height: 60vw;
+  max-height: 500px;
+  background-image: url(./images/not_found.webp);
+  background-position: center;
+  background-size: cover;
+  border-radius: 6px;
+}
+
+.notfoundpage_wrapper h1 {
+  text-align: center;
+}
+
+.notfoundpage_wrapper h2 {
+  text-align: center;
+  color:  #00A8CC;
+}
+
+@media (max-width: 900px) {
+
+  .notfoundpage_wrapper {
+    padding: 0 16px;
+    width: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .notfound_picture {
+    width: 90vw;
+    height: 90vw;
+  }
+  
+}

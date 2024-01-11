@@ -13,7 +13,6 @@
 .hero_picture {
   width: 243px;
   height: 243px;
-  /* background-image: url('./images/person.webp'); */
   background-size: contain;
   background-repeat: no-repeat;
   border-radius: 50%;
@@ -35,6 +34,10 @@
   width: fit-content;
   cursor: pointer;
 }
+
+.banner_info a {
+  width: fit-content;
+}
 .banner_info h1 {
   font-size: 44px;
   font-weight: 700;
@@ -48,11 +51,19 @@
   font-weight: 400;
   max-width: 510px;
 }
-@media (max-width: 450px) {
+
+@media (max-width: 960px) {
+
+  .banner_wrapper {
+    max-width: 95%;;
+  } 
+}
+
+@media (max-width: 700px) {
   .banner_wrapper {
     flex-direction: column;
-    align-items: center;
   }
+
   .banner_info {
     width: 95%;
     display: flex;
@@ -61,12 +72,17 @@
   }
   .banner_info h1 {
     text-align: center;
+    font-size: 32px;
+    padding: 0 20px;
   }
 }
-
 @media (max-width: 450px) {
+  .banner_wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
   .banner_info h1 {
-    padding: 0 20px;
+    line-height: 40px;
   }
   .banner_info p {
     padding: 0 10px;

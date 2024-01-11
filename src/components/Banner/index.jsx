@@ -1,5 +1,6 @@
+import { getUrl } from '../..'
+import { BASE_URL } from '../../asyncActions'
 import s from './Banner.module.css'
-import { BASE_URL } from '../..'
 import { forwardRef } from 'react'
 
 const Banner = forwardRef((props, ref) => {
@@ -8,7 +9,7 @@ const Banner = forwardRef((props, ref) => {
     <section className={s.banner_wrapper} ref={ref}>
       <div
         className={s.hero_picture}
-        style={{backgroundImage: `url(${BASE_URL + '/images/person.webp'})`}}
+        style={{backgroundImage: `url(${getUrl('images/person.webp')})`}}
       ></div>
       <div className={s.banner_info}>
         <h1>Hi, I'm Alex, Front-End Developer</h1>

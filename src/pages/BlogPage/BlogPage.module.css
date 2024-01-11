@@ -3,9 +3,7 @@
   max-width: 900px;
   margin: auto;
   margin-top: 100px;
-  min-height: 100vh;
-  /* display: flex;
-  flex-direction: column; */
+  min-height: 75vh;
 }
 
 .blog_list {
@@ -15,10 +13,24 @@
   gap: 40px
 }
 
+.blog_page_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-.blog_item {
-  border-bottom: 1px solid black;
-  padding-bottom: 20px;
+.blog_page_header a {
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 400;
+  color: #00A8CC;
+}
+@media (max-width: 960px) {
+  .blog_page_wrapper {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
 }
 
 @media (max-width: 450px) {

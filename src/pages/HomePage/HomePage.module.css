@@ -1,7 +1,6 @@
 .wrapper {
   margin: auto;
   margin-top: 50px;
-  
 }
 
 .recent_posts_wrapper {
@@ -42,13 +41,22 @@
   gap: 20px
 }
 
+@media (max-width: 960px) {
+  .recent_posts_wrapper {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+@media (max-width: 700px) {
+  .recent_posts_list {
+    grid-template-columns: 1fr;
+  }
+}
 @media (max-width: 450px) {
   .recent_posts_wrapper {
     padding: 0 10px 30px 10px;
   }
-  .recent_posts_list {
-    grid-template-columns: 1fr;
-  }
+  
   .recent_posts_header {
     display: flex;
     flex-direction: column;

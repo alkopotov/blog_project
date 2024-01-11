@@ -3,7 +3,7 @@
   max-width: 900px;
   margin: auto;
   margin-top: 100px;
-  min-height: 100vh;
+  min-height: 80vh;
 }
 .worklist_header {
   display: flex;
@@ -18,10 +18,18 @@
   color: #00A8CC;
 
 }
+@media (max-width: 960px) {
+  .worklist_header {
+    padding-left: 20px;
+  }
+  
+}
 @media (max-width: 450px) {
   .worklistpage_wrapper {
     padding: 0 12px;
     width: auto;
   }
-  
+  .worklist_header {
+    padding-left: 0;
+  }
 }

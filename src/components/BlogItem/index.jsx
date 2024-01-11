@@ -9,18 +9,15 @@ function BlogItem({blog, onMain}) {
 
 
   return (
-    <div className={`${s.blog_item_wrapper} ${onMain ? s.main_page : ''}`}>
+    <div className={`${s.blog_item_wrapper} ${onMain ? s.main_page : s.underline}`}>
       <h3>{blog.title}</h3>
       <div className={s.date_tags}>
         <h4>{dateDisplay}</h4>
         <div className={s.blog_tags}>
           {blog.tags.map(elem => 
-            blog.tags.indexOf(elem) === blog.tags.length - 1 ? <Link key={elem.id}>{elem.title}</Link> 
-              :<Link key={elem.id}>{`${elem.title}${', '}`}</Link>
-             
+            blog.tags.indexOf(elem) === blog.tags.length - 1 ? <Link key={elem.id} to={'/blogs/tag/' + elem.title}>{elem.title}</Link> 
+              :<Link key={elem.id} to={'/blogs/tag/' + elem.title}>{`${elem.title}${', '}`}</Link> 
           )}
-
-          {/* {blog.tags.map(elem => <h4 key={elem.id}>{elem.title}</h4> )} */}
         </div>
       </div>
       <p>{blog.text}</p>
